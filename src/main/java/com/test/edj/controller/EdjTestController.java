@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.test.edj.repository.EdjTestRepository;
@@ -21,6 +22,17 @@ public class EdjTestController {
 	@GetMapping("/getAllFinancialAdvisorData")
 	public List<EdjTestEntity> getAllFinancialAdvisorData() {
 		return edjTestRepository.findAll();
+	}
+	
+	
+	@GetMapping("/getAllFADataByRegion/{regionParam}")
+	public List<EdjTestEntity> getAllFinancialAdvisorDataByRegion(@PathVariable("regionParam") String regionParam) {
+		return edjTestRepository.findFAbyRegion(regionParam);
+	}
+	
+	@GetMapping("/getAllFADataByAdvisorId/{id}")
+	public List<EdjTestEntity> getAllFinancialAdvisorDataByAdvisorID(@PathVariable("id") Integer id) {
+		return edjTestRepository.findFAbyAdvisorID(id);
 	}
 	
 //    public List<GetDataByCountryCodeRes> getDataByCountryCode() {

@@ -12,7 +12,6 @@ import lombok.Setter;
 @Table(name = "financialadvisordata", schema ="edj_advisor_test")
 @Getter
 @Setter
-
 public class EdjTestEntity {
 	
 	@Id
@@ -36,6 +35,8 @@ public class EdjTestEntity {
 	private String country;
 	
 	private String advisor_status;
+	
+	private String region;
 
 	public int getAdvisor_id() {
 		return advisor_id;
@@ -115,6 +116,14 @@ public class EdjTestEntity {
 
 	public void setAdvisor_status(String advisor_status) {
 		this.advisor_status = advisor_status;
+	}
+
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
 	}
 	
 	
